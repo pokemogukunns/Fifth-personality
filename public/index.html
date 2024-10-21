@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplayer 3D Game</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+        #chatBox {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            overflow-y: scroll;
+        }
+        #chatInput {
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+    <div id="chatBox"></div>
+    <form id="chatForm">
+        <input id="chatInput" type="text" placeholder="Type a message">
+        <button type="submit">Send</button>
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

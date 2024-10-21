@@ -44,3 +44,16 @@ io.on('connection', (socket) => {
 server.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
+
+// プレイヤーごとのキャラクター情報を追加
+players[socket.id] = {
+    position: { x: 0, y: 0, z: 0 },
+    character: data.character // プレイヤーが選んだキャラクターを保存
+};
+
+// 新しいプレイヤーが接続された際に、キャラクター情報も送信
+socket.broadcast.emit('newPlayer', {
+    id: socket.id,
+    position: players[socket.id].position,
+    character: players[socket.id].character
+});
